@@ -9,4 +9,5 @@ Although this repository is licensed under Mozilla Public License v2.0, the
 trademarks and brands contained herein remain the property of their respective
 owners. For more details, please see the notifications in the respective directories.
 
-[![interweb-osx-10-6.png](https://i.postimg.cc/zfhTVtCN/interweb-osx-10-6.png)](https://postimg.cc/McWnLY33)
+
+[![interweb-snow.png](https://i.postimg.cc/ZK0BWsmQ/interweb-snow.png)](https://postimg.cc/XpS7h8pK)
