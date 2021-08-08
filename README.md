@@ -1,7 +1,7 @@
 ## InterWeb browser for OS X 10.6 Snow Leopard
 
 The InterWeb web browser, a close twin to Mozilla's Firefox and UXP's Basilisk.
-Based on Firefox-esr 52 and Basilisk code.
+Based on Firefox-esr 52, Firefox-Legacy, and Basilisk code.
 
 ### A note about trademarks and branding
 
