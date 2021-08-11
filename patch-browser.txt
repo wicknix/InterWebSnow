@@ -1,0 +1,2 @@
+run ./getcxx.sh to get SL libc++ from macports
+run ./patchcxx path/to/InterWeb.app
