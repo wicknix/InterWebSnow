@@ -104,18 +104,22 @@ nsHttpConnection::~nsHttpConnection()
     if (!mEverUsedSpdy) {
         LOG(("nsHttpConnection %p performed %d HTTP/1.x transactions\n",
              this, mHttp1xTransactionCount));
+/*
         Telemetry::Accumulate(Telemetry::HTTP_REQUEST_PER_CONN,
                               mHttp1xTransactionCount);
+*/
     }
 
     if (mTotalBytesRead) {
         uint32_t totalKBRead = static_cast<uint32_t>(mTotalBytesRead >> 10);
         LOG(("nsHttpConnection %p read %dkb on connection spdy=%d\n",
              this, totalKBRead, mEverUsedSpdy));
+/*
         Telemetry::Accumulate(mEverUsedSpdy ?
                               Telemetry::SPDY_KBREAD_PER_CONN :
                               Telemetry::HTTP_KBREAD_PER_CONN,
                               totalKBRead);
+*/
     }
     if (mForceSendTimer) {
         mForceSendTimer->Cancel();
@@ -309,6 +313,13 @@ nsHttpConnection::EnsureNPNComplete(nsresult &aOut0RTTWriteHandshakeValue,
         goto npnComplete;
     }
 
+	if (!m0RTTChecked) {
+        // We reuse m0RTTChecked. We want to send this status only once.
+        mTransaction->OnTransportStatus(mSocketTransport,
+                                        NS_NET_STATUS_TLS_HANDSHAKE_STARTING,
+                                        0);
+    }
+
     ssl = do_QueryInterface(securityInfo, &rv);
     if (NS_FAILED(rv))
         goto npnComplete;
@@ -393,6 +404,7 @@ nsHttpConnection::EnsureNPNComplete(nsresult &aOut0RTTWriteHandshakeValue,
 
         bool ealyDataAccepted = false;
         if (mWaitingFor0RTTResponse) {
+        	mWaitingFor0RTTResponse = false;
             // Check if early data has been accepted.
             rv = ssl->GetEarlyDataAccepted(&ealyDataAccepted);
             LOG(("nsHttpConnection::EnsureNPNComplete [this=%p] - early data "
@@ -437,7 +449,7 @@ nsHttpConnection::EnsureNPNComplete(nsresult &aOut0RTTWriteHandshakeValue,
           mContentBytesWritten = mContentBytesWritten0RTT;
         }
 
-        Telemetry::Accumulate(Telemetry::SPDY_NPN_CONNECT, UsingSpdy());
+        //Telemetry::Accumulate(Telemetry::SPDY_NPN_CONNECT, UsingSpdy());
     }
 
 npnComplete:

@@ -144,6 +144,7 @@ nsHttpTransaction::nsHttpTransaction()
     , mIsInIsolatedMozBrowser(false)
     , mClassOfService(0)
     , m0RTTInProgress(false)
+    , mTransportStatus(NS_OK)
 {
     LOG(("Creating nsHttpTransaction @%p\n", this));
     gHttpHandler->GetMaxPipelineObjectSize(&mMaxPipelineObjectSize);
@@ -561,6 +562,50 @@ nsHttpTransaction::OnTransportStatus(nsITransport* transport,
         }
     }
 
+    // A transaction can given to multiple HalfOpen sockets (this is a bug in
+    // nsHttpConnectionMgr). We are going to fix it here as a work around to be
+    // able to uplift it.
+    switch(status) {
+    case NS_NET_STATUS_RESOLVING_HOST:
+        if (mTransportStatus != NS_OK) {
+            LOG(("nsHttpTransaction::OnSocketStatus - ignore socket events "
+                 "from backup transport"));
+            return;
+        }
+        break;
+    case NS_NET_STATUS_RESOLVED_HOST:
+        if (mTransportStatus != NS_NET_STATUS_RESOLVING_HOST &&
+            mTransportStatus != NS_OK) {
+            LOG(("nsHttpTransaction::OnSocketStatus - ignore socket events "
+                 "from backup transport"));
+            return;
+        }
+        break;
+    case NS_NET_STATUS_CONNECTING_TO:
+        if (mTransportStatus != NS_NET_STATUS_RESOLVING_HOST &&
+            mTransportStatus != NS_NET_STATUS_RESOLVED_HOST  &&
+            mTransportStatus != NS_OK) {
+            LOG(("nsHttpTransaction::OnSocketStatus - ignore socket events "
+                 "from backup transport"));
+            return;
+        }
+        break;
+    case NS_NET_STATUS_CONNECTED_TO:
+        if (mTransportStatus != NS_NET_STATUS_RESOLVING_HOST &&
+            mTransportStatus != NS_NET_STATUS_RESOLVED_HOST &&
+            mTransportStatus != NS_NET_STATUS_CONNECTING_TO &&
+            mTransportStatus != NS_OK) {
+            LOG(("nsHttpTransaction::OnSocketStatus - ignore socket events "
+                 "from backup transport"));
+            return;
+        }
+        break;
+    default:
+        LOG(("nsHttpTransaction::OnSocketStatus - a new event"));
+    }
+
+    mTransportStatus = status;
+
     // If the timing is enabled, and we are not using a persistent connection
     // then the requestStart timestamp will be null, so we mark the timestamps
     // for domainLookupStart/End and connectStart/End
@@ -574,7 +619,9 @@ nsHttpTransaction::OnTransportStatus(nsITransport* transport,
         } else if (status == NS_NET_STATUS_CONNECTING_TO) {
             SetConnectStart(TimeStamp::Now());
         } else if (status == NS_NET_STATUS_CONNECTED_TO) {
-            SetConnectEnd(TimeStamp::Now());
+            SetConnectEnd(TimeStamp::Now(), true);
+        } else if (status == NS_NET_STATUS_TLS_HANDSHAKE_ENDED) {
+            SetConnectEnd(TimeStamp::Now(), false);
         }
     }
 
@@ -1326,6 +1373,8 @@ nsHttpTransaction::Restart()
             mRequestHead->SetHeader(nsHttp::Alternate_Service_Used, NS_LITERAL_CSTRING("0"));
         }
     }
+    
+    mTransportStatus = NS_OK;
 
     return gHttpHandler->InitiateTransaction(this, mPriority);
 }

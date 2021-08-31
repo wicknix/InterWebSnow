@@ -467,6 +467,10 @@ public:
 private:
     RefPtr<ASpdySession> mTunnelProvider;
 
+    bool m0RTTInProgress;
+    
+    nsresult mTransportStatus;
+    
 public:
     void SetTransactionObserver(TransactionObserver *arg) { mTransactionObserver = arg; }
 private:
@@ -478,7 +482,7 @@ private:
     NetAddr                         mSelfAddr;
     NetAddr                         mPeerAddr;
 
-    bool                            m0RTTInProgress;
+   // bool                            m0RTTInProgress;
 };
 
 } // namespace net

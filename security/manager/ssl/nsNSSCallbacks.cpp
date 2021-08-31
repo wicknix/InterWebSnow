@@ -1219,7 +1219,7 @@ void HandshakeCallback(PRFileDesc* fd, void* client_data) {
   MOZ_ASSERT(rv == SECSuccess);
   if (rv == SECSuccess) {
     // Get the protocol version for telemetry
-    // 1=tls1, 2=tls1.1, 3=tls1.2
+    // 1=tls1, 2=tls1.1, 3=tls1.2, 4=tls1.3
     unsigned int versionEnum = channelInfo.protocolVersion & 0xFF;
     MOZ_ASSERT(versionEnum > 0);
     Telemetry::Accumulate(Telemetry::SSL_HANDSHAKE_VERSION, versionEnum);
