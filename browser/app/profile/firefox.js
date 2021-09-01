@@ -45,14 +45,14 @@ pref("xpinstall.customConfirmationUI", true);
 // Preferences for AMO integration
 pref("extensions.getAddons.cache.enabled", false);
 pref("extensions.getAddons.maxResults", 10);
-pref("extensions.getAddons.get.url", "https://addons.basilisk-browser.org/");
-pref("extensions.getAddons.getWithPerformance.url", "https://addons.basilisk-browser.org/");
-pref("extensions.getAddons.search.browseURL", "https://addons.basilisk-browser.org/");
-pref("extensions.getAddons.search.url", "https://addons.basilisk-browser.org/");
-pref("extensions.webservice.discoverURL", "https://addons.basilisk-browser.org/");
-pref("extensions.getAddons.recommended.url", "https://addons.basilisk-browser.org/");
-pref("extensions.getAddons.browseAddons", "https://addons.basilisk-browser.org/");
-pref("extensions.getAddons.recommended.browseURL", "https://addons.basilisk-browser.org/");
+pref("extensions.getAddons.get.url", "https://@AM_DOMAIN@/?component=integration&type=internal&request=get&addonguid=%IDS%&os=%OS%&version=%VERSION%");
+pref("extensions.getAddons.getWithPerformance.url", "https://@AM_DOMAIN@/?component=integration&type=internal&request=get&addonguid=%IDS%&os=%OS%&version=%VERSION%");
+pref("extensions.getAddons.search.browseURL", "https://@AM_DOMAIN@/search/?terms=%TERMS%");
+pref("extensions.getAddons.search.url", "https://@AM_DOMAIN@/?component=integration&type=internal&request=search&q=%TERMS%&locale=%LOCALE%&os=%OS%&version=%VERSION%");
+pref("extensions.webservice.discoverURL", "http://@AM_DOMAIN@/?component=discover");
+pref("extensions.getAddons.recommended.url", "https://@AM_DOMAIN@/?component=integration&type=internal&request=recommended&locale=%LOCALE%&os=%OS%");
+pref("extensions.getAddons.browseAddons", "http://@AM_DOMAIN@/");
+pref("extensions.getAddons.recommended.browseURL", "https://@AM_DOMAIN@/?component=integration&type=external&request=recommended");
 
 pref("extensions.update.autoUpdateDefault", true);
 
@@ -62,7 +62,7 @@ pref("extensions.hotfix.certs.1.sha1Fingerprint", "91:53:98:0C:C1:86:DF:47:8F:35
 pref("extensions.hotfix.certs.2.sha1Fingerprint", "39:E7:2B:7A:5B:CF:37:78:F9:5D:4A:E0:53:2D:2F:3D:68:53:C5:60");
 
 // Check AUS for system add-on updates.
-pref("extensions.systemAddon.update.url", "");
+pref("extensions.systemAddon.update.url", "https://aus5.mozilla.org/update/3/SystemAddons/%VERSION%/%BUILD_ID%/%BUILD_TARGET%/%LOCALE%/%CHANNEL%/%OS_VERSION%/%DISTRIBUTION%/%DISTRIBUTION_VERSION%/update.xml");
 
 // Disable add-ons that are not installed by the user in all scopes by default.
 // See the SCOPE constants in AddonManager.jsm for values to use here.
@@ -77,7 +77,7 @@ pref("xpinstall.signatures.required", false);
 pref("xpinstall.signatures.devInfoURL", "https://wiki.mozilla.org/Addons/Extension_Signing");
 
 // Dictionary download preference
-pref("browser.dictionaries.download.url", "http://depository.binaryoutcast.com/dicts/");
+pref("browser.dictionaries.download.url", "http://@AM_DOMAIN@/dictionaries/");
 
 // At startup, should we check to see if the installation
 // date is older than some threshold
@@ -160,8 +160,8 @@ pref("app.update.service.enabled", false);
 //  .. etc ..
 //
 pref("extensions.update.enabled", true);
-pref("extensions.update.url", "");
-pref("extensions.update.background.url", "");
+pref("extensions.update.url", "https://versioncheck.addons.mozilla.org/update/VersionCheck.php?reqVersion=%REQ_VERSION%&id=%ITEM_ID%&version=%ITEM_VERSION%&maxAppVersion=%ITEM_MAXAPPVERSION%&status=%ITEM_STATUS%&appID=%APP_ID%&appVersion=%APP_VERSION%&appOS=%APP_OS%&appABI=%APP_ABI%&locale=%APP_LOCALE%&currentAppVersion=%CURRENT_APP_VERSION%&updateType=%UPDATE_TYPE%&compatMode=%COMPATIBILITY_MODE%");
+pref("extensions.update.background.url", "https://versioncheck-bg.addons.mozilla.org/update/VersionCheck.php?reqVersion=%REQ_VERSION%&id=%ITEM_ID%&version=%ITEM_VERSION%&maxAppVersion=%ITEM_MAXAPPVERSION%&status=%ITEM_STATUS%&appID=%APP_ID%&appVersion=%APP_VERSION%&appOS=%APP_OS%&appABI=%APP_ABI%&locale=%APP_LOCALE%&currentAppVersion=%CURRENT_APP_VERSION%&updateType=%UPDATE_TYPE%&compatMode=%COMPATIBILITY_MODE%");
 pref("extensions.update.interval", 86400);  // Check for updates to Extensions and
                                             // Themes every day
 // Non-symmetric (not shared by extensions) extension-specific [update] preferences
@@ -189,12 +189,12 @@ pref("browser.uitour.requireSecure", false);
 pref("browser.uitour.themeOrigin", "https://addons.basilisk-browser.org/themes/");
 pref("browser.uitour.url", " ");
 // This is used as a regexp match against the page's URL.
-pref("browser.uitour.readerViewTrigger", "");
+pref("browser.uitour.readerViewTrigger", "^https:\\/\\/www\\.mozilla\\.org\\/[^\\/]+\\/firefox\\/reading\\/start");
 // How long to show a Hearbeat survey (two hours, in seconds)
 pref("browser.uitour.surveyDuration", 7200);
 
 pref("browser.customizemode.tip0.shown", false);
-pref("browser.customizemode.tip0.learnMoreUrl", "");
+pref("browser.customizemode.tip0.learnMoreUrl", "https://support.mozilla.org/1/firefox/%VERSION%/%OS%/%LOCALE%/customize");
 
 pref("keyword.enabled", true);
 pref("browser.fixup.domainwhitelist.localhost", true);
@@ -776,7 +776,7 @@ pref("gecko.handlerService.schemes.ircs.3.uriTemplate", "chrome://browser-region
 // By default, we don't want protocol/content handlers to be registered from a different host, see bug 402287
 pref("gecko.handlerService.allowRegisterFromDifferentHost", false);
 
-pref("browser.geolocation.warning.infoURL", "");
+pref("browser.geolocation.warning.infoURL", "https://www.mozilla.org/%LOCALE%/firefox/geolocation/");
 
 pref("browser.EULA.version", 3);
 pref("browser.rights.version", 3);
@@ -787,7 +787,7 @@ pref("browser.rights.3.shown", false);
 pref("browser.rights.override", true);
 #endif
 
-pref("browser.selfsupport.url", "");
+pref("browser.selfsupport.url", "https://self-repair.mozilla.org/%LOCALE%/repair");
 
 pref("browser.sessionstore.resume_from_crash", true);
 pref("browser.sessionstore.resume_session_once", false);
@@ -893,11 +893,11 @@ pref("browser.zoom.siteSpecific", true);
 pref("browser.zoom.updateBackgroundTabs", true);
 
 // The breakpad report server to link to in about:crashes
-pref("breakpad.reportURL", "");
+pref("breakpad.reportURL", "https://crash-stats.mozilla.com/report/index/");
 
 // URL for "Learn More" for Crash Reporter
 pref("toolkit.crashreporter.infoURL",
-     "");
+     "https://www.mozilla.org/legal/privacy/firefox.html#crash-reporter");
 
 // base URL for web-based support pages
 pref("app.support.baseURL", "https://github.com/wicknix");
@@ -907,9 +907,9 @@ pref("app.support.e10sAccessibilityUrl", " ");
 
 // base url for web-based feedback pages
 #ifdef MOZ_DEV_EDITION
-pref("app.feedback.baseURL", "https://randommacstuff.blogspot.com/p/interweb-browser.html);
+pref("app.feedback.baseURL", "https://forum.palemoon.org/viewforum.php?f=61");
 #else
-pref("app.feedback.baseURL", "https://randommacstuff.blogspot.com/p/interweb-browser.html);
+pref("app.feedback.baseURL", "https://forum.palemoon.org/viewforum.php?f=61");
 #endif
 
 
@@ -1329,8 +1329,8 @@ pref("identity.sync.tokenserver.uri", "https://token.services.mozilla.com/1.0/sy
 
 // URLs for promo links to mobile browsers. Note that consumers are expected to
 // append a value for utm_campaign.
-pref("identity.mobilepromo.android", "");
-pref("identity.mobilepromo.ios", "");
+pref("identity.mobilepromo.android", "https://www.mozilla.org/firefox/android/?utm_source=firefox-browser&utm_medium=firefox-browser&utm_campaign=");
+pref("identity.mobilepromo.ios", "https://www.mozilla.org/firefox/ios/?utm_source=firefox-browser&utm_medium=firefox-browser&utm_campaign=");
 
 // Migrate any existing Firefox Account data from the default profile to the
 // Developer Edition profile.
@@ -1424,7 +1424,7 @@ pref("privacy.trackingprotection.ui.enabled", false);
 pref("privacy.trackingprotection.ui.enabled", false);
 #endif
 pref("privacy.trackingprotection.introCount", 0);
-pref("privacy.trackingprotection.introURL", "");
+pref("privacy.trackingprotection.introURL", "https://www.mozilla.org/%LOCALE%/firefox/%VERSION%/tracking-protection/start/");
 
 // Enable Contextual Identity Containers
 #ifdef NIGHTLY_BUILD
@@ -1527,7 +1527,7 @@ pref("browser.migrate.chrome.history.maxAgeInDays", 0);
 // Enable browser frames for use on desktop.  Only exposed to chrome callers.
 pref("dom.mozBrowserFramesEnabled", true);
 
-pref("extensions.pocket.enabled", false);
+pref("extensions.pocket.enabled", true);
 
 pref("signon.schemeUpgrades", true);
 
