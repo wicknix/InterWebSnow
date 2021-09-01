@@ -124,14 +124,14 @@
           </vbox>
 #ifdef MC_PRIVATE_BUILD
 <description class="text-blurb" id="communityDesc">
-              This is a private build of Basilisk. If you did not manually build this copy from source yourself, then please download an official version from the <label class="text-link" href="http://www.basilisk-browser.org/">Basilisk website</label>.
+              This is a private build of InterWeb. If you did not manually build this copy from source yourself, then please download an official version from <label class="text-link" href="https://github.com/wicknix/InterWebSnow/releases">here</label>.
           </description>
 #else
           <description class="text-blurb" id="communityDesc">
-              InterWeb is community software released by <label class="text-link" href="https://github.com/wicknix/">wicknix</label> and is based on code released by Mozilla and UXP developers. Learn <label class="text-link" useoriginprincipal="true" href="about:credits">who contributed</label> to this software.
+              InterWeb is community software released by <label class="text-link" href="https://github.com/wicknix/">wicknix</label> and is based on code released by Mozilla, Firefox-Legacy, and UXP developers. Learn <label class="text-link" useoriginprincipal="true" href="about:credits">who contributed</label> to this software.
           </description>
           <description class="text-blurb" id="contributeDesc">
-              Bringing the modern web back to Snow Leopard.
+              Bringing most of the modern web back to Snow Leopard.
           </description>
 #endif
         </vbox>
