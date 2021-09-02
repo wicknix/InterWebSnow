@@ -355,7 +355,7 @@ pref("browser.helperApps.deleteTempFileOnExit", true);
 #endif
 
 // search engines URL
-pref("browser.search.searchEnginesURL",      "https://addons.mozilla.org/%LOCALE%/firefox/search-engines/");
+pref("browser.search.searchEnginesURL",      "https://addons.basilisk-browser.org/search-plugins/");
 
 // pointer to the default engine name
 pref("browser.search.defaultenginename",      "chrome://browser-region/locale/region.properties");
@@ -900,16 +900,16 @@ pref("toolkit.crashreporter.infoURL",
      "https://www.mozilla.org/legal/privacy/firefox.html#crash-reporter");
 
 // base URL for web-based support pages
-pref("app.support.baseURL", "https://github.com/wicknix");
+pref("app.support.baseURL", "https://github.com/wicknix/InterWebSnow");
 
 // a11y conflicts with e10s support page
 pref("app.support.e10sAccessibilityUrl", " ");
 
 // base url for web-based feedback pages
 #ifdef MOZ_DEV_EDITION
-pref("app.feedback.baseURL", "https://forum.palemoon.org/viewforum.php?f=61");
+pref("app.feedback.baseURL", "https://randommacstuff.blogspot.com/p/interweb-browser.html");
 #else
-pref("app.feedback.baseURL", "https://forum.palemoon.org/viewforum.php?f=61");
+pref("app.feedback.baseURL", "https://randommacstuff.blogspot.com/p/interweb-browser.html");
 #endif
 
 
