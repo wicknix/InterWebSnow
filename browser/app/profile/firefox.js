@@ -35,7 +35,7 @@ pref("extensions.strictCompatibility", false);
 pref("extensions.minCompatibleAppVersion", "4.0");
 // Temporary preference to forcibly make themes more safe with Australis even if
 // extensions.checkCompatibility=false has been set.
-pref("extensions.checkCompatibility.temporaryThemeOverride_minAppVersion", "29.0a1");
+pref("extensions.checkCompatibility.temporaryThemeOverride_minAppVersion", "45.0");
 
 pref("xpinstall.customConfirmationUI", true);
 
@@ -45,24 +45,24 @@ pref("xpinstall.customConfirmationUI", true);
 // Preferences for AMO integration
 pref("extensions.getAddons.cache.enabled", false);
 pref("extensions.getAddons.maxResults", 10);
-pref("extensions.getAddons.get.url", "https://@AM_DOMAIN@/?component=integration&type=internal&request=get&addonguid=%IDS%&os=%OS%&version=%VERSION%");
-pref("extensions.getAddons.getWithPerformance.url", "https://@AM_DOMAIN@/?component=integration&type=internal&request=get&addonguid=%IDS%&os=%OS%&version=%VERSION%");
-pref("extensions.getAddons.search.browseURL", "https://@AM_DOMAIN@/search/?terms=%TERMS%");
-pref("extensions.getAddons.search.url", "https://@AM_DOMAIN@/?component=integration&type=internal&request=search&q=%TERMS%&locale=%LOCALE%&os=%OS%&version=%VERSION%");
-pref("extensions.webservice.discoverURL", "http://@AM_DOMAIN@/?component=discover");
-pref("extensions.getAddons.recommended.url", "https://@AM_DOMAIN@/?component=integration&type=internal&request=recommended&locale=%LOCALE%&os=%OS%");
-pref("extensions.getAddons.browseAddons", "http://@AM_DOMAIN@/");
-pref("extensions.getAddons.recommended.browseURL", "https://@AM_DOMAIN@/?component=integration&type=external&request=recommended");
+pref("extensions.getAddons.get.url", "");
+pref("extensions.getAddons.getWithPerformance.url", "");
+pref("extensions.getAddons.search.browseURL", "");
+pref("extensions.getAddons.search.url", "");
+pref("extensions.webservice.discoverURL", "");
+pref("extensions.getAddons.recommended.url", "");
+pref("extensions.getAddons.browseAddons", "");
+pref("extensions.getAddons.recommended.browseURL", "");
 
 pref("extensions.update.autoUpdateDefault", true);
-
-pref("extensions.hotfix.id", "firefox-hotfix@mozilla.org");
-pref("extensions.hotfix.cert.checkAttributes", true);
-pref("extensions.hotfix.certs.1.sha1Fingerprint", "91:53:98:0C:C1:86:DF:47:8F:35:22:9E:11:C9:A7:31:04:49:A1:AA");
-pref("extensions.hotfix.certs.2.sha1Fingerprint", "39:E7:2B:7A:5B:CF:37:78:F9:5D:4A:E0:53:2D:2F:3D:68:53:C5:60");
+// Disable this garbage
+// pref("extensions.hotfix.id", "firefox-hotfix@mozilla.org");
+// pref("extensions.hotfix.cert.checkAttributes", true);
+// pref("extensions.hotfix.certs.1.sha1Fingerprint", "91:53:98:0C:C1:86:DF:47:8F:35:22:9E:11:C9:A7:31:04:49:A1:AA");
+// pref("extensions.hotfix.certs.2.sha1Fingerprint", "39:E7:2B:7A:5B:CF:37:78:F9:5D:4A:E0:53:2D:2F:3D:68:53:C5:60");
 
 // Check AUS for system add-on updates.
-pref("extensions.systemAddon.update.url", "https://aus5.mozilla.org/update/3/SystemAddons/%VERSION%/%BUILD_ID%/%BUILD_TARGET%/%LOCALE%/%CHANNEL%/%OS_VERSION%/%DISTRIBUTION%/%DISTRIBUTION_VERSION%/update.xml");
+pref("extensions.systemAddon.update.url", "");
 
 // Disable add-ons that are not installed by the user in all scopes by default.
 // See the SCOPE constants in AddonManager.jsm for values to use here.
@@ -77,7 +77,7 @@ pref("xpinstall.signatures.required", false);
 pref("xpinstall.signatures.devInfoURL", "https://wiki.mozilla.org/Addons/Extension_Signing");
 
 // Dictionary download preference
-pref("browser.dictionaries.download.url", "http://@AM_DOMAIN@/dictionaries/");
+pref("browser.dictionaries.download.url", "");
 
 // At startup, should we check to see if the installation
 // date is older than some threshold
@@ -159,9 +159,10 @@ pref("app.update.service.enabled", false);
 //  extensions.{GUID}.update.url
 //  .. etc ..
 //
+// AMO is dead
 pref("extensions.update.enabled", true);
-pref("extensions.update.url", "https://versioncheck.addons.mozilla.org/update/VersionCheck.php?reqVersion=%REQ_VERSION%&id=%ITEM_ID%&version=%ITEM_VERSION%&maxAppVersion=%ITEM_MAXAPPVERSION%&status=%ITEM_STATUS%&appID=%APP_ID%&appVersion=%APP_VERSION%&appOS=%APP_OS%&appABI=%APP_ABI%&locale=%APP_LOCALE%&currentAppVersion=%CURRENT_APP_VERSION%&updateType=%UPDATE_TYPE%&compatMode=%COMPATIBILITY_MODE%");
-pref("extensions.update.background.url", "https://versioncheck-bg.addons.mozilla.org/update/VersionCheck.php?reqVersion=%REQ_VERSION%&id=%ITEM_ID%&version=%ITEM_VERSION%&maxAppVersion=%ITEM_MAXAPPVERSION%&status=%ITEM_STATUS%&appID=%APP_ID%&appVersion=%APP_VERSION%&appOS=%APP_OS%&appABI=%APP_ABI%&locale=%APP_LOCALE%&currentAppVersion=%CURRENT_APP_VERSION%&updateType=%UPDATE_TYPE%&compatMode=%COMPATIBILITY_MODE%");
+// pref("extensions.update.url", "https://versioncheck.addons.mozilla.org/update/VersionCheck.php?reqVersion=%REQ_VERSION%&id=%ITEM_ID%&version=%ITEM_VERSION%&maxAppVersion=%ITEM_MAXAPPVERSION%&status=%ITEM_STATUS%&appID=%APP_ID%&appVersion=%APP_VERSION%&appOS=%APP_OS%&appABI=%APP_ABI%&locale=%APP_LOCALE%&currentAppVersion=%CURRENT_APP_VERSION%&updateType=%UPDATE_TYPE%&compatMode=%COMPATIBILITY_MODE%");
+// pref("extensions.update.background.url", "https://versioncheck-bg.addons.mozilla.org/update/VersionCheck.php?reqVersion=%REQ_VERSION%&id=%ITEM_ID%&version=%ITEM_VERSION%&maxAppVersion=%ITEM_MAXAPPVERSION%&status=%ITEM_STATUS%&appID=%APP_ID%&appVersion=%APP_VERSION%&appOS=%APP_OS%&appABI=%APP_ABI%&locale=%APP_LOCALE%&currentAppVersion=%CURRENT_APP_VERSION%&updateType=%UPDATE_TYPE%&compatMode=%COMPATIBILITY_MODE%");
 pref("extensions.update.interval", 86400);  // Check for updates to Extensions and
                                             // Themes every day
 // Non-symmetric (not shared by extensions) extension-specific [update] preferences
@@ -174,7 +175,7 @@ pref("extensions.{972ce4c6-7e08-4474-a285-3208198ce6fd}.description", "chrome://
 
 pref("lightweightThemes.update.enabled", false);
 pref("lightweightThemes.getMoreURL", "https://addons.basilisk-browser.org/themes/");
-//pref("lightweightThemes.recommendedThemes", "[{\"id\":\"recommended-1\",\"homepageURL\":\"https://addons.mozilla.org/firefox/addon/a-web-browser-renaissance/\",\"headerURL\":\"resource:///chrome/browser/content/browser/defaultthemes/1.header.jpg\",\"footerURL\":\"resource:///chrome/browser/content/browser/defaultthemes/1.footer.jpg\",\"textcolor\":\"#000000\",\"accentcolor\":\"#f2d9b1\",\"iconURL\":\"resource:///chrome/browser/content/browser/defaultthemes/1.icon.jpg\",\"previewURL\":\"resource:///chrome/browser/content/browser/defaultthemes/1.preview.jpg\",\"author\":\"Sean.Martell\",\"version\":\"0\"},{\"id\":\"recommended-2\",\"homepageURL\":\"https://addons.mozilla.org/firefox/addon/space-fantasy/\",\"headerURL\":\"resource:///chrome/browser/content/browser/defaultthemes/2.header.jpg\",\"footerURL\":\"resource:///chrome/browser/content/browser/defaultthemes/2.footer.jpg\",\"textcolor\":\"#ffffff\",\"accentcolor\":\"#d9d9d9\",\"iconURL\":\"resource:///chrome/browser/content/browser/defaultthemes/2.icon.jpg\",\"previewURL\":\"resource:///chrome/browser/content/browser/defaultthemes/2.preview.jpg\",\"author\":\"fx5800p\",\"version\":\"1.0\"},{\"id\":\"recommended-3\",\"homepageURL\":\"https://addons.mozilla.org/firefox/addon/linen-light/\",\"headerURL\":\"resource:///chrome/browser/content/browser/defaultthemes/3.header.png\",\"footerURL\":\"resource:///chrome/browser/content/browser/defaultthemes/3.footer.png\",\"accentcolor\":\"#ada8a8\",\"iconURL\":\"resource:///chrome/browser/content/browser/defaultthemes/3.icon.png\",\"previewURL\":\"resource:///chrome/browser/content/browser/defaultthemes/3.preview.png\",\"author\":\"DVemer\",\"version\":\"1.0\"},{\"id\":\"recommended-4\",\"homepageURL\":\"https://addons.mozilla.org/firefox/addon/pastel-gradient/\",\"headerURL\":\"resource:///chrome/browser/content/browser/defaultthemes/4.header.png\",\"footerURL\":\"resource:///chrome/browser/content/browser/defaultthemes/4.footer.png\",\"textcolor\":\"#000000\",\"accentcolor\":\"#000000\",\"iconURL\":\"resource:///chrome/browser/content/browser/defaultthemes/4.icon.png\",\"previewURL\":\"resource:///chrome/browser/content/browser/defaultthemes/4.preview.png\",\"author\":\"darrinhenein\",\"version\":\"1.0\"},{\"id\":\"recommended-5\",\"homepageURL\":\"https://addons.mozilla.org/firefox/addon/carbon-light/\",\"headerURL\":\"resource:///chrome/browser/content/browser/defaultthemes/5.header.png\",\"footerURL\":\"resource:///chrome/browser/content/browser/defaultthemes/5.footer.png\",\"textcolor\":\"#3b3b3b\",\"accentcolor\":\"#2e2e2e\",\"iconURL\":\"resource:///chrome/browser/content/browser/defaultthemes/5.icon.jpg\",\"previewURL\":\"resource:///chrome/browser/content/browser/defaultthemes/5.preview.jpg\",\"author\":\"Jaxivo\",\"version\":\"1.0\"}]");
+// pref("lightweightThemes.recommendedThemes", "[{\"id\":\"recommended-1\",\"homepageURL\":\"https://addons.mozilla.org/firefox/addon/a-web-browser-renaissance/\",\"headerURL\":\"resource:///chrome/browser/content/browser/defaultthemes/1.header.jpg\",\"footerURL\":\"resource:///chrome/browser/content/browser/defaultthemes/1.footer.jpg\",\"textcolor\":\"#000000\",\"accentcolor\":\"#f2d9b1\",\"iconURL\":\"resource:///chrome/browser/content/browser/defaultthemes/1.icon.jpg\",\"previewURL\":\"resource:///chrome/browser/content/browser/defaultthemes/1.preview.jpg\",\"author\":\"Sean.Martell\",\"version\":\"0\"},{\"id\":\"recommended-2\",\"homepageURL\":\"https://addons.mozilla.org/firefox/addon/space-fantasy/\",\"headerURL\":\"resource:///chrome/browser/content/browser/defaultthemes/2.header.jpg\",\"footerURL\":\"resource:///chrome/browser/content/browser/defaultthemes/2.footer.jpg\",\"textcolor\":\"#ffffff\",\"accentcolor\":\"#d9d9d9\",\"iconURL\":\"resource:///chrome/browser/content/browser/defaultthemes/2.icon.jpg\",\"previewURL\":\"resource:///chrome/browser/content/browser/defaultthemes/2.preview.jpg\",\"author\":\"fx5800p\",\"version\":\"1.0\"},{\"id\":\"recommended-3\",\"homepageURL\":\"https://addons.mozilla.org/firefox/addon/linen-light/\",\"headerURL\":\"resource:///chrome/browser/content/browser/defaultthemes/3.header.png\",\"footerURL\":\"resource:///chrome/browser/content/browser/defaultthemes/3.footer.png\",\"accentcolor\":\"#ada8a8\",\"iconURL\":\"resource:///chrome/browser/content/browser/defaultthemes/3.icon.png\",\"previewURL\":\"resource:///chrome/browser/content/browser/defaultthemes/3.preview.png\",\"author\":\"DVemer\",\"version\":\"1.0\"},{\"id\":\"recommended-4\",\"homepageURL\":\"https://addons.mozilla.org/firefox/addon/pastel-gradient/\",\"headerURL\":\"resource:///chrome/browser/content/browser/defaultthemes/4.header.png\",\"footerURL\":\"resource:///chrome/browser/content/browser/defaultthemes/4.footer.png\",\"textcolor\":\"#000000\",\"accentcolor\":\"#000000\",\"iconURL\":\"resource:///chrome/browser/content/browser/defaultthemes/4.icon.png\",\"previewURL\":\"resource:///chrome/browser/content/browser/defaultthemes/4.preview.png\",\"author\":\"darrinhenein\",\"version\":\"1.0\"},{\"id\":\"recommended-5\",\"homepageURL\":\"https://addons.mozilla.org/firefox/addon/carbon-light/\",\"headerURL\":\"resource:///chrome/browser/content/browser/defaultthemes/5.header.png\",\"footerURL\":\"resource:///chrome/browser/content/browser/defaultthemes/5.footer.png\",\"textcolor\":\"#3b3b3b\",\"accentcolor\":\"#2e2e2e\",\"iconURL\":\"resource:///chrome/browser/content/browser/defaultthemes/5.icon.jpg\",\"previewURL\":\"resource:///chrome/browser/content/browser/defaultthemes/5.preview.jpg\",\"author\":\"Jaxivo\",\"version\":\"1.0\"}]");
 
 #if defined(MOZ_ADOBE_EME) || defined(MOZ_WIDEVINE_EME)
 pref("browser.eme.ui.enabled", true);
@@ -194,7 +195,7 @@ pref("browser.uitour.readerViewTrigger", "^https:\\/\\/www\\.mozilla\\.org\\/[^\
 pref("browser.uitour.surveyDuration", 7200);
 
 pref("browser.customizemode.tip0.shown", false);
-pref("browser.customizemode.tip0.learnMoreUrl", "https://support.mozilla.org/1/firefox/%VERSION%/%OS%/%LOCALE%/customize");
+// pref("browser.customizemode.tip0.learnMoreUrl", "https://support.mozilla.org/1/firefox/%VERSION%/%OS%/%LOCALE%/customize");
 
 pref("keyword.enabled", true);
 pref("browser.fixup.domainwhitelist.localhost", true);
@@ -236,7 +237,8 @@ pref("browser.slowStartup.maxSamples", 5);
 // This url, if changed, MUST continue to point to an https url. Pulling arbitrary content to inject into
 // this page over http opens us up to a man-in-the-middle attack that we'd rather not face. If you are a downstream
 // repackager of this code using an alternate snippet url, please keep your users safe
-pref("browser.aboutHomeSnippets.updateUrl", "https://snippets.cdn.mozilla.net/%STARTPAGE_VERSION%/%NAME%/%VERSION%/%APPBUILDID%/%BUILD_TARGET%/%LOCALE%/%CHANNEL%/%OS_VERSION%/%DISTRIBUTION%/%DISTRIBUTION_VERSION%/");
+// We'll use duckduckgo for this placeholder
+pref("browser.aboutHomeSnippets.updateUrl", "https://duckduckgo.com");
 
 pref("browser.enable_automatic_image_resizing", true);
 pref("browser.casting.enabled", false);
@@ -369,7 +371,7 @@ pref("browser.search.order.3",                "chrome://browser-region/locale/re
 // This is disabled globally, and then enabled for individual locales
 // in firefox-l10n.js (eg. it's enabled for en-US).
 pref("browser.search.geoSpecificDefaults", false);
-pref("browser.search.geoSpecificDefaults.url", "https://search.services.mozilla.com/1/%APP%/%VERSION%/%CHANNEL%/%LOCALE%/%REGION%/%DISTRIBUTION%/%DISTRIBUTION_VERSION%");
+pref("browser.search.geoSpecificDefaults.url", "");
 
 // US specific default (used as a fallback if the geoSpecificDefaults request fails).
 pref("browser.search.defaultenginename.US",      "data:text/plain,browser.search.defaultenginename.US=Google");
@@ -776,7 +778,7 @@ pref("gecko.handlerService.schemes.ircs.3.uriTemplate", "chrome://browser-region
 // By default, we don't want protocol/content handlers to be registered from a different host, see bug 402287
 pref("gecko.handlerService.allowRegisterFromDifferentHost", false);
 
-pref("browser.geolocation.warning.infoURL", "https://www.mozilla.org/%LOCALE%/firefox/geolocation/");
+pref("browser.geolocation.warning.infoURL", "");
 
 pref("browser.EULA.version", 3);
 pref("browser.rights.version", 3);
@@ -787,7 +789,7 @@ pref("browser.rights.3.shown", false);
 pref("browser.rights.override", true);
 #endif
 
-pref("browser.selfsupport.url", "https://self-repair.mozilla.org/%LOCALE%/repair");
+pref("browser.selfsupport.url", "");
 
 pref("browser.sessionstore.resume_from_crash", true);
 pref("browser.sessionstore.resume_session_once", false);
@@ -893,11 +895,11 @@ pref("browser.zoom.siteSpecific", true);
 pref("browser.zoom.updateBackgroundTabs", true);
 
 // The breakpad report server to link to in about:crashes
-pref("breakpad.reportURL", "https://crash-stats.mozilla.com/report/index/");
+pref("breakpad.reportURL", "");
 
 // URL for "Learn More" for Crash Reporter
 pref("toolkit.crashreporter.infoURL",
-     "https://www.mozilla.org/legal/privacy/firefox.html#crash-reporter");
+     "");
 
 // base URL for web-based support pages
 pref("app.support.baseURL", "https://github.com/wicknix/InterWebSnow");
@@ -1182,10 +1184,10 @@ pref("browser.newtabpage.rows", 3);
 pref("browser.newtabpage.columns", 5);
 
 // directory tiles download URL
-pref("browser.newtabpage.directory.source", "https://tiles.services.mozilla.com/v3/links/fetch/%LOCALE%/%CHANNEL%");
+pref("browser.newtabpage.directory.source", "");
 
 // endpoint to send newtab click and view pings
-pref("browser.newtabpage.directory.ping", "https://tiles.services.mozilla.com/v3/links/");
+pref("browser.newtabpage.directory.ping", "");
 
 // activates the remote-hosted newtab page
 pref("browser.newtabpage.remote", false);
@@ -1232,7 +1234,7 @@ pref("social.sidebar.unload_timeout_ms", 10000);
 // Activation from inside of share panel is possible if activationPanelEnabled
 // is true. Pref'd off for release while usage testing is done through beta.
 pref("social.share.activationPanelEnabled", false);
-pref("social.shareDirectory", "https://activations.cdn.mozilla.net/sharePanel.html");
+pref("social.shareDirectory", "");
 
 // Block insecure active content on https pages
 pref("security.mixed_content.block_active_content", true);
@@ -1424,7 +1426,7 @@ pref("privacy.trackingprotection.ui.enabled", false);
 pref("privacy.trackingprotection.ui.enabled", false);
 #endif
 pref("privacy.trackingprotection.introCount", 0);
-pref("privacy.trackingprotection.introURL", "https://www.mozilla.org/%LOCALE%/firefox/%VERSION%/tracking-protection/start/");
+pref("privacy.trackingprotection.introURL", "");
 
 // Enable Contextual Identity Containers
 #ifdef NIGHTLY_BUILD
