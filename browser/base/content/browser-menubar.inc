@@ -527,5 +527,9 @@
 #endif
               </menupopup>
             </menu>
+            #ifdef XP_MACOSX
+          <menu id="windowMenu" />
+#endif
+          <menu id="helpMenu" />
 
         </menubar>
