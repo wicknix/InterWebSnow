@@ -167,16 +167,6 @@
         <image class="category-icon"/>
         <label class="category-name" flex="1">&paneSync.title;</label>
       </richlistitem>
-
-      <richlistitem id="category-advanced"
-                    class="category"
-                    value="paneAdvanced"
-                    helpTopic="prefs-advanced-general"
-                    tooltiptext="&paneAdvanced.title;"
-                    align="center">
-        <image class="category-icon"/>
-        <label class="category-name" flex="1">&paneAdvanced.title;</label>
-      </richlistitem>
     </richlistbox>
 
     <keyset>
