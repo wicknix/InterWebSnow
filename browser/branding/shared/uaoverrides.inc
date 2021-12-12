@@ -21,6 +21,9 @@
 
 // FxA override
 pref("@GUAO_PREF@.accounts.firefox.com", "Mozilla/5.0 (@OS_SLICE@ rv:@GK_VERSION@) @GK_SLICE@ @FX_SLICE@");
+// TRY to get basilisk addons site to think we ARE basilisk
+pref("general.useragent.override.addons.palemoon.org", "Mozilla/5.0 (X11; Linux x86_64; rv:68.0) Gecko/20100101 Goanna/4.8 Firefox/68.0 PaleMoon/29.4.1");
+pref("general.useragent.override.addons.basilisk-browser.org", "Mozilla/5.0 (X11; Linux x86_64; rv:68.0) Gecko/20100101 Goanna/4.8 Firefox/68.0 Basilisk/52.9.2021.09.27");
 
 // Required for domains that have proven unresponsive to requests from users
 
