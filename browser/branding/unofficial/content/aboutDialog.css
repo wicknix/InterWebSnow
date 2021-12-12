@@ -3,7 +3,7 @@
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
 #aboutDialogContainer {
-  background-image: url("chrome://branding/content/about.png");
+  background-image: url("chrome://branding/content/about-background.png");
   background-repeat: no-repeat;
   background-color: rgb(10,17,37);
   color: #fff;
@@ -16,7 +16,7 @@
 
 #rightBox {
   /* this margin prevents text from overlapping the planet image */
-  margin-left: 280px;
+  margin-left: 185px;
   margin-right: 20px;
 }
 
