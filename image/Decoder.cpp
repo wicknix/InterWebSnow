@@ -295,7 +295,7 @@ Decoder::AllocateFrame(uint32_t aFrameNum,
 
     // We should now be on |aFrameNum|. (Note that we're comparing the frame
     // number, which is zero-based, with the frame count, which is one-based.)
-    MOZ_ASSERT_IF(aFrameNum + 1 == mFrameCount);
+    MOZ_ASSERT(aFrameNum + 1 == mFrameCount);
 
     // If we're past the first frame, PostIsAnimated() should've been called.
     MOZ_ASSERT_IF(mFrameCount > 1, HasAnimation());
