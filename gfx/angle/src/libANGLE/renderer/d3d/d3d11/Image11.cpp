@@ -186,7 +186,7 @@ bool Image11::redefine(GLenum target,
                        const gl::Extents &size,
                        bool forceRelease)
 {
-    if (mWidth != size.width || mHeight != size.height || mInternalFormat != internalformat ||
+    if (mWidth != size.width || mHeight != size.height || mDepth != size.depth || mInternalFormat != internalformat ||
         forceRelease)
     {
         // End the association with the TextureStorage, since that data will be out of date.
