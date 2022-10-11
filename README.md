@@ -1,3 +1,5 @@
+## This repository is currently broken. I've been updating the source locally. Attached in the releases is the updated source.
+
 ## InterWeb browser for OS X 10.6 Snow Leopard
 
 The InterWeb web browser, a close twin to Mozilla's Firefox and UXP's Basilisk.
